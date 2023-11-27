@@ -1,0 +1,322 @@
+﻿Kisi-Kisi UASP
+
+
+* Menampilkan nama komputer
+hostname
+
+
+* Menampilkan nama kernel atau username
+uname
+        
+* Melihat alamat IP komputer
+hostname -I
+
+
+* Menampilkan waktu tanggal sistem
+date
+
+
+* Menampilkan berapa lama komputer berjalan
+uptime
+
+
+* Menampilkan kalender
+cal
+
+
+* Menampilkan nama user efektif
+whoami
+
+
+* Menampilkan daftar siapa saja yang sedang login
+who
+
+
+* Mengganti atau pindah direktori : 
+   * Home
+cd ~
+
+
+   * Parent
+cd ..
+
+
+   * Saat ini
+cd .
+
+
+   * Root
+cd /
+
+
+* Direktori mana saja
+cd #namadirektori
+contoh : 
+   * pindah ke direktori Downloads
+cd Downloads
+
+
+
+
+* Membuat direktori baru
+mkdir #namadirektori
+contoh : 
+   * buat direktori bernama zahra
+mkdir zahra
+
+
+* Menampilkan direktori sekarang
+pwd
+
+
+* Tampilkan isi direktori
+ls
+   * semua
+ls -a
+
+
+   * panjang
+ls -l
+
+
+   * human-readable
+ls -h
+
+
+* Hapus direktori
+rm
+
+
+   * Hapus direktori seutuhnya
+rm -r
+contoh : 
+      * Hapus direktori zahra seutuhnya
+rm -r zahra
+* Membuat file
+touch #namafile
+contoh : 
+   * membuat file baru bernama zahra
+touch zahra
+
+
+* Mengubah nama file
+mv #namafilelama #namafilebaru
+contoh : 
+   * mengubah nama file zahra menjadi jara
+mv zahra jara
+
+
+* Salin file
+cp
+   * Home
+cp #namafile ~
+contoh : 
+      * salin file /zahra/jara ke home
+cp /zahra/jara ~
+
+
+   * Saat ini
+cp #namafile .
+contoh : 
+      * salin file /zahra/jara ke direktori saat ini
+cp /zahra/jara .
+
+
+   * Direktori mana saja
+cp #namafile #namadirektori
+contoh : 
+      * salin file /zahra/jara ke direktori so
+cp /zahra/jara so
+
+
+* Cetak sesuatu
+echo ‘sesuatu’
+
+
+* Redirect ke sebuah file
+>> #namafile.txt
+contoh : 
+   * cetak sesuatu lalu redirect ke halo.txt
+echo “sesuatu” >> halo.txt
+
+
+* Membuat symlink file ke direktori
+ln -s #namafile #namadirektori
+contoh : 
+   * Membuat symlink file /zahra/jara ke
+      * Home
+ln -s /zahra/jara ~
+      * Parent
+ln -s /zahra/jara ..
+
+
+      * Saat ini
+ln -s /zahra/jara .
+
+
+* Mengubah permission
+chmod
+   * Keterangan orang : 
+u = user
+g = grup
+o = orang lain (others)
+
+
+   * Keterangan aksi : 
+r = read = 4
+w = write = 2 
+x = execute = 1
+
+
+   * Keterangan fungsi : 
++ : ditambahkan
+- : ditiadakan
+= : disetting
+
+
+   * contoh : 
+      * Mengubah permision hay.txt agar bisa dibaca dan dieksekusi user
+chmod u=rx hay.txt
+
+
+      * Mengubah permision hay.txt agar tidak bisa dilihat orang lain
+chmod o-r hay.txt
+
+
+Mencari file
+locate “#namafile”
+contoh : 
+mencari halo.txt
+locate “halo.txt”
+
+
+Mencari file dalam direktori berdasarkan
+nama
+find #namadirektori -name ‘namafile’
+contoh :
+mencari “hay” pada direktori /zahra/jara 
+find /zahra/jara -name ‘hay’
+
+
+kosong
+contoh :
+mencari file yang kosong pada direktori /zahra/jara
+find /zahra/jara -empty
+Menghitung jumlah sesuatu pada file
+Jumlah character
+wc -c #namafile
+contoh : 
+menghitung jumlah karakter file hay.txt pada direktori /zahra/jara
+wc -c /zahra/jara/hay.txt
+
+
+Jumlah kata
+wc -w #namafile
+contoh : 
+menghitung jumlah kata file hay.txt pada direktori /zahra/jara
+wc -w /zahra/jara/hay.txt
+
+
+Jumlah baris
+wc -l #namafile
+contoh : 
+menghitung jumlah baris file hay.txt pada direktori /zahra/jara
+wc -l /zahra/jara/hay.txt
+
+
+Memilih baris yang memiliki pola kata dalam file
+grep ‘pola’
+
+
+Memilih baris yang tidak ada pola katanya (menghapus)
+grep -v ‘pola’
+
+
+contoh : 
+mencari pola kata halo pada file hay.txt dalam direktori /jara, lalu hapus yang ada kata bye nya
+grep ‘halo’ /jara/hay.txt | grep -v ‘bye’
+
+
+Menampilkan isi file
+cat #namafile
+contoh : 
+cat zahra
+
+
+Memotong file
+cut 
+
+
+Memotong sesuai baris ke-
+contoh : 
+memotong baris ke 9
+cut -f 9
+
+
+Memotong sesuai delimiter
+contoh : 
+memotong setelah titik dua :
+cut -d “:”
+
+
+bisa juga digabungkan
+contoh : 
+memotong setelah titik dua dan baris ke 9
+cut -d “:” -f 9
+
+
+Mengambil beberapa baris pertama file
+head -n (jumlah baris)
+co : head -n 9
+
+
+Mengambil beberapa baris terakhir file
+tail -n (jumlah baris)
+co : tail -n 9
+
+
+Mengurutkan isi file
+sort
+
+
+Menghilangkan baris yang berulang
+uniq
+
+
+Mengatur proses jadi background
+#namaproses &
+co : 
+jalankan sleep 9 dalam background
+sleep 9 &
+
+
+Mengatur nice pada proses
+nice -n (jumlah nice) #namaproses
+co : 
+atur sleep 9 jadi nice 15 dalam background
+nice -n 15 sleep 9 &
+
+
+Tampilkan daftar jobs
+jobs
+
+
+Tampilkan daftar proses dengan format panjang (-l)
+ps -l
+
+
+Sinyal
+kirim sinyal STOP ke proses menggunakan nomor job
+kill -STOP %1
+
+
+kirim sinyal CONT ke proses menggunakan nomor job
+kill -CONT %1
+
+
+Lanjutkan proses agar berjalan pada background sesuai nomor job
+bg %1
+
+
+Lanjutkan proses agar berjalan pada background sesuai nomor job
+fg %1
